@@ -39,7 +39,7 @@
   
 </head>
 <body>
-	<div class="fullScreen viewport">
+	<div class="fullScreen ">
 		<h1 id='mainTitle'>
 			Take notes in your pictures
 		</h1>
@@ -47,11 +47,15 @@
 			<span class='media-icon camera'></span>
 		</button>
 	</div>
-	<div class="fullScreen">
+	<div class="fullScreen" id='activity'>
+	<h1>d</h1>
 		<img src="" id='img'>
 		<video id='v'></video>
 		<canvas id='c'></canvas>
-		<button id='t'>Toma una foto</button>
+		<input type="file" id="take-picture" accept="image/*">
 	</div>
+	
+	<script src='http://code.jquery.com/jquery-latest.js'></script>
+	<script src='script.js'></script>
 </body>
 </html>

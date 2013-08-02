@@ -4,6 +4,7 @@ body{
     	url(../style/action_menu/images/ui/gradient.png) no-repeat left top / 100% 100%;
     color: #f7f7f7;
     font-family: 'Monda', sans-serif;
+    overflow:hidden;
 }
 #mainButton{
 	position: absolute;
@@ -25,11 +26,10 @@ body{
 	display: none;
 }
 .fullScreen{
+	background:
+    	url(../style/action_menu/images/ui/pattern.png) repeat left top,
+    	url(../style/action_menu/images/ui/gradient.png) no-repeat left top / 100% 100%;
 	position:relative;
 	width: 100%;
 	height: 100%;
-	display: none;
-}
-.viewport{
-	display: block;
 }
