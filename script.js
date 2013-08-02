@@ -1,14 +1,8 @@
 var imagen = new Image(), canvas,ctx;
+var imgWidth,imgHeight,datosPrim;
 imagen.onload = function()
 {
-	imgWidth = this.width;
-	imgHeight = this.height;
-	canvas.width = imgWidth/2;
-	canvas.height = imgHeight/2;
-	ctx.drawImage(this,0,0,imgWidth/2,imgHeight/2);
-	var datosDeLaImagen = ctx.getImageData(0,0,imgWidth,imgHeight);
-	datosPrim = datosDeLaImagen.data;
-	aBlancoNegro(this,canvas,ctx);
+	
 }
 $(document).on('ready',function(e){
 	$('#mainButton').on('click',function(){
@@ -18,21 +12,22 @@ $(document).on('ready',function(e){
 	 var takePicture = document.querySelector("#take-picture"),
         showPicture = document.querySelector("#img");
 	takePicture.onchange = function (event) {
-    
+    alert('D:sadasd');
 		var files = event.target.files,file;
 		if (files && files.length > 0) {
 			file = files[0];
 			try {
 				var URL = window.URL;
 				var imgURL = URL.createObjectURL(file);
-				showPicture.src = imgURL;
-				imagen.src = imgURL;
+				alert('D:');
+				addSrc(imgURL);
 				URL.revokeObjectURL(imgURL);
 			}
 			catch (e) {
 				try {
 					var fileReader = new FileReader();
 					fileReader.onload = function (event) {
+						alert('D:');
 						showPicture.src = event.target.result;
 	        };
 					fileReader.readAsDataURL(file);
@@ -47,6 +42,18 @@ $(document).on('ready',function(e){
 		}
   };
 });
+function addSrc(url){
+	imagen.src = imgURL;
+	alert(':P');
+	imgWidth = imagen.width;
+	imgHeight = imagen.height;
+	canvas.width = imgWidth/2;
+	canvas.height = imgHeight/2;
+	ctx.drawImage(imagen,0,0,imgWidth/2,imgHeight/2);
+	var datosDeLaImagen = ctx.getImageData(0,0,imgWidth,imgHeight);
+	datosPrim = datosDeLaImagen.data;
+	aBlancoNegro(imagen,canvas,ctx);
+}
 function inciar()
 {
 	canvas = document.getElementById("miCanvas");
