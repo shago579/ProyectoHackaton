@@ -1,0 +1,10 @@
+body{
+  		background:
+    	url(action_menu/images/ui/pattern.png) repeat left top,
+    	url(action_menu/images/ui/gradient.png) no-repeat left top / 100% 100%;
+  	}
+  	#mainButton{
+  		position: absolute;
+  		bottom: 0px;
+
+  	}

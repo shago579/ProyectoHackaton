@@ -10,24 +10,22 @@
     var isFFOS = ("mozApps" in navigator && navigator.userAgent.search("Mobile") != -1);
 
     if ( isFFOS ) {
-			alert(":/");
-      var manifestUrl = 'http://localhost/proyectohackaton/manifest.webapp';
-      var req = navigator.mozApps.checkInstalled(manifestUrl);
-
+      var manifestUrl = 'http://localhost/ProyectoHackaton/manifest.webapp';
+      var req = navigator.mozApps.installPackage(manifestUrl);
       req.onsuccess = function() {
-      	alert('Aplicacion instalad');
         console.log(this.result.origin);
       };
       req.onerror = function() {
-      	alert('Error verificando estado de la instalación: ' + this.error.message);
-      	document.querySelector('#ejemplo').style.display = 'none';
         console.log(this.error.name);
       };
-
+      window.location.href = "app.html"
     } else {
       window.location.href = "app.html"
     }
 
   </script>
+	<h1>ola ke ase</h1>
+	<h2>pateando el trasero de lucho o k ase?</h2>
+
 </body>
 </html>
