@@ -11,8 +11,11 @@
     "name": "Your name or organization",
     "url": "http://www.codigofacilito.com"
   },
-  "default_locale": "en",
   "permission":{
-  
-  }
+    camera:{
+    "description":"Se usara para subir fotos ",
+    "access": "certified"
+    }
+  },
+  "default_locale": "en",
 }
