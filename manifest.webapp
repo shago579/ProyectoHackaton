@@ -1,0 +1,18 @@
+{
+  "name": "Team Facilito",
+  "description": "Guarda tu informacion con texto, dibujos, imagenes o fotografias directamente de tu camara",
+  "launch_path": "/",
+  "icons": {
+    "30" : "pathde la image",
+    "60" : "path de la imagen",
+    "128": "/img/icon-128.png"
+  },
+  "developer": {
+    "name": "Your name or organization",
+    "url": "http://www.codigofacilito.com"
+  },
+  "default_locale": "en",
+  "permission":{
+  
+  }
+}
