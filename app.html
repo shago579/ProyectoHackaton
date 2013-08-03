@@ -1,32 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset='utf-8'>
-	<title></title>
-	<link rel="stylesheet" href="style/action_menu.css">
+  <meta charset='utf-8'>
+  <link rel="stylesheet" href="style/action_menu.css">
   <link rel="stylesheet" href="style/buttons.css">
-  <link rel="stylesheet" href="style/confirm.css">
-  <link rel="stylesheet" href="style/edit_mode.css">
-  <link rel="stylesheet" href="style/headers.css">
-  <link rel="stylesheet" href="style/input_areas.css">
-  <link rel="stylesheet" href="style/status.css">
-  <link rel="stylesheet" href="style/switches.css">
-  <link rel="stylesheet" href="style_unstable/drawer.css">
-  <link rel="stylesheet" href="style_unstable/lists.css">
-  <link rel="stylesheet" href="style_unstable/progress_activity.css">
-  <link rel="stylesheet" href="style_unstable/scrolling.css">
-  <link rel="stylesheet" href="style_unstable/seekbars.css">
-  <link rel="stylesheet" href="style_unstable/tabs.css">
-  <link rel="stylesheet" href="style_unstable/toolbars.css">
-
-  <!-- Icons -->
-  <link rel="stylesheet" href="icons/styles/action_icons.css">
+ 
   <link rel="stylesheet" href="icons/styles/media_icons.css">
-  <link rel="stylesheet" href="icons/styles/comms_icons.css">
-  <link rel="stylesheet" href="icons/styles/settings_icons.css">
+ <link rel="stylesheet" href="icons/styles/action_icons.css">
 
-  <!-- Transitions -->
-  <link rel="stylesheet" href="transitions.css">
   
   <!-- Util CSS: some extra tricks -->
   <link rel="stylesheet" href="util.css">
@@ -39,23 +20,30 @@
   
 </head>
 <body>
-	<div class="fullScreen ">
-		<h1 id='mainTitle'>
-			Take notes in your pictures
-
-		</h1>
-		<button class="recommend " id='mainButton'>
-			<span class='media-icon camera'></span>
-		</button>
-	</div>
-	<div class="fullScreen" id='activity'>
-		<img src="" id='img'>
-		<video id='v'></video>
-		<canvas id='miCanvas'></canvas>
-		<input type="file" id="take-picture" accept="image/*">
-	</div>
-	
-	<script src='jquery.js'></script>
-	<script src='script.js'></script>
+  <div class="fullScreen" id='activity'>
+    <h1 id='mainTitle'>
+      Edit your Photos is easy
+    </h1>
+    <canvas id='miCanvas'></canvas>
+    <div class="input_file">
+      <input type="file" id="take-picture" class="input_f" accept="image/*">
+        <button class="recommend mainButton">
+          <span class='media-icon camera'></span>
+        </button>
+    </div>
+    
+    <nav id="botonesCtrl">
+      <ul>
+        <li id="btnBN"></li>
+        <li id="btnIC"></li>
+        <li id="btnRI" class="media-icon undo"></li>
+        <li id="btnRS"></li>
+        <li id="btnGI" class="action-icon move"></li>
+      </ul>
+    </nav>
+  </div>
+  
+  <script src='jquery.js'></script>
+  <script src='script.js'></script>
 </body>
 </html>

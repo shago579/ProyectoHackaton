@@ -12,14 +12,15 @@ $(document).on('ready',function(e){
 	 var takePicture = document.querySelector("#take-picture"),
         showPicture = document.querySelector("#img");
 	takePicture.onchange = function (event) {
-    alert('D:sadasd');
+		$('#botonesCtrl').fadeIn('slow');
+   		$('#mainTitle').slideUp();
 		var files = event.target.files,file;
 		if (files && files.length > 0) {
 			file = files[0];
 			try {
 				var URL = window.URL;
 				var imgURL = URL.createObjectURL(file);
-				alert('D:');
+				//alert('Linea veinti dos');
 				addSrc(imgURL);
 				URL.revokeObjectURL(imgURL);
 			}
@@ -27,8 +28,9 @@ $(document).on('ready',function(e){
 				try {
 					var fileReader = new FileReader();
 					fileReader.onload = function (event) {
-						alert('D:');
-						showPicture.src = event.target.result;
+						//alert('Linea treinta');
+						//showPicture.src = event.target.result;
+						addSrc(event.target.result);
 	        };
 					fileReader.readAsDataURL(file);
 				}
@@ -42,9 +44,9 @@ $(document).on('ready',function(e){
 		}
   };
 });
-function addSrc(url){
+function addSrc(imgURL){
 	imagen.src = imgURL;
-	alert(':P');
+
 	imgWidth = imagen.width;
 	imgHeight = imagen.height;
 	canvas.width = imgWidth/2;
@@ -52,24 +54,52 @@ function addSrc(url){
 	ctx.drawImage(imagen,0,0,imgWidth/2,imgHeight/2);
 	var datosDeLaImagen = ctx.getImageData(0,0,imgWidth,imgHeight);
 	datosPrim = datosDeLaImagen.data;
-	aBlancoNegro(imagen,canvas,ctx);
+	$('#miCanvas').css({
+		'left': (($('.fullScreen').width() - $('#miCanvas').width())/2)+'px',
+		'top': (($('.fullScreen').height() - $('#miCanvas').height())/2)+'px'
+	})
 }
-function inciar()
+function iniciar()
 {
+
 	canvas = document.getElementById("miCanvas");
 	if(canvas.getContext)
 	{
 		$("#btnBN").click(function(){
-			aBlancoNegro(img,canvas,ctx);
+
+			aBlancoNegro(imagen,canvas,ctx);
 		});
 		$("#btnIC").on("click",function(){
-			invertirColores(img,canvas,ctx);
+			invertirColores(imagen,canvas,ctx);
 		});
 		$("#btnRI").click(function(){
-			restaurarImagen(img,canvas,ctx)
+			restaurarImagen(imagen,canvas,ctx);
 		});
 		$("#btnRS").click(function(){
-			aSepia(img,canvas,ctx)
+			aSepia(imagen,canvas,ctx);
+		});
+		$("#btnGI").click(function(){
+			
+			var sdcard = navigator.getDeviceStorage("sdcard");
+			canvas.toBlob(function(blob){
+
+				var t = makeid();
+
+				var request = sdcard.addNamed(blob, t+".jpg");
+
+				request.onsuccess = function () {
+				  var name = this.result.name;
+				  console.log('El archivo "' + name + '" se escribió correctamente en el área de almacenamiento sdcard');
+				  alert("El archivo se ha guardado correctamente");
+				}
+
+				
+				request.onerror = function () {
+
+				  console.warn('No se puede escribir el archivo: ' + this.error);
+				}
+			})
+			
 		});
 		ctx = canvas.getContext("2d");
 	}
@@ -125,4 +155,14 @@ function aSepia(img,canvas,ctx)
 		datos[i+2] = datos[i]*0.272 + datos[i+1]*0.534 + datos[i+2]*0.131;
 	}
 	ctx.putImageData(datosDeLaImagen,0,0);
+}
+function makeid()
+{
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for( var i=0; i < 5; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
 }

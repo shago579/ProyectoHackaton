@@ -1,21 +1,20 @@
 {
-  "name": "Team Facilito",
+  "name": "Insta Facilito",
   "description": "Guarda tu informacion con texto, dibujos, imagenes o fotografias directamente de tu camara",
-  "launch_path": "index.html",
-  "icons": {
-    "30" : "pathde la image",
-    "60" : "path de la imagen",
-    "128": "/img/icon-128.png"
+  "launch_path": "/index.html",
+  "icons": {    
+    "128": "iconosparamozilla/logofeo.png"
   },
   "developer": {
-    "name": "Your name or organization",
+    "name": "Codigo Facilito",
     "url": "http://www.codigofacilito.com"
   },
   "permission":{
     "camera":{
     "description":"Se usara para subir fotos ",
     "access": "certified"
-    }
+    },
+    "device-storage:pictures":{ "access": "readwrite" }
   },
   "default_locale": "en"
 }
